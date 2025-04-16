@@ -2,6 +2,9 @@
 #
 .DS_Store
 
+#package-lock file
+package-lock.json
+
 # Xcode
 #
 build/
