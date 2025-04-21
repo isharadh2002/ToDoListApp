@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+//src/components/TaskInput.tsx
+
+import React, {useState} from 'react';
+import {View, TextInput, TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
-import { useTaskStore } from '../store/taskStore';
+import {useTaskStore} from '../store/TaskStore';
 
 export default function TaskInput() {
   const [title, setTitle] = useState('');
@@ -41,8 +43,8 @@ export default function TaskInput() {
 }
 
 const styles = StyleSheet.create({
-  container: { flexDirection: 'row', margin: 16 },
-  inputs: { flex: 1, marginRight: 8 },
+  container: {flexDirection: 'row', margin: 16},
+  inputs: {flex: 1, marginRight: 8},
   input: {
     borderWidth: 1,
     borderColor: '#FFA500',

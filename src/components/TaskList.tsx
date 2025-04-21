@@ -1,6 +1,8 @@
+//src/components/TaskList.tsx
+
 import React from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
-import { useTaskStore } from '../store/taskStore';
+import {View, Text, FlatList, StyleSheet} from 'react-native';
+import {useTaskStore} from '../store/TaskStore';
 import TaskItem from './TaskItem';
 
 export default function TaskList() {
@@ -20,13 +22,23 @@ export default function TaskList() {
     <FlatList
       data={tasks}
       keyExtractor={item => item.id}
-      renderItem={({ item }) => <TaskItem task={item} />}
+      renderItem={({item}) => <TaskItem task={item} />}
     />
   );
 }
 
 const styles = StyleSheet.create({
-  emptyContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 32 },
-  emptyText: { color: '#FFA500', fontSize: 18, marginVertical: 8 },
-  horizRule: { width: 60, height: 2, backgroundColor: '#FFA500', marginVertical: 4 },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 32,
+  },
+  emptyText: {color: '#FFA500', fontSize: 18, marginVertical: 8},
+  horizRule: {
+    width: 60,
+    height: 2,
+    backgroundColor: '#FFA500',
+    marginVertical: 4,
+  },
 });
