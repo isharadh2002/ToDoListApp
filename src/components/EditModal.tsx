@@ -1,4 +1,4 @@
-//src/components/EditModal.tsx
+// src/components/EditModal.tsx
 
 import React, {useState} from 'react';
 import {
@@ -19,7 +19,7 @@ interface Props {
 export default function EditModal({task, onClose}: Props) {
   const [title, setTitle] = useState(task.title);
   const [body, setBody] = useState(task.body);
-  const updateTask = useTaskStore(state => state.updateTask); // You need to add this method
+  const updateTask = useTaskStore(state => state.updateTask);
 
   const onSave = () => {
     updateTask(task.id, title, body);
@@ -30,17 +30,25 @@ export default function EditModal({task, onClose}: Props) {
     <Modal transparent animationType="fade">
       <View style={styles.overlay}>
         <View style={styles.modal}>
+          <Text style={styles.label}>Title</Text>
           <TextInput
             style={styles.input}
             value={title}
             onChangeText={setTitle}
+            placeholder="Enter title..."
+            placeholderTextColor="#FFA500"
           />
+
+          <Text style={styles.label}>Description</Text>
           <TextInput
             style={styles.textArea}
             value={body}
             onChangeText={setBody}
+            placeholder="Enter description..."
+            placeholderTextColor="#FFA500"
             multiline
           />
+
           <View style={styles.actions}>
             <TouchableOpacity onPress={onClose} style={styles.button}>
               <Text style={styles.buttonText}>Cancel</Text>
@@ -64,38 +72,51 @@ const styles = StyleSheet.create({
   },
   modal: {
     width: '90%',
+    minHeight: 320,
     backgroundColor: '#111',
     borderRadius: 12,
-    padding: 16,
+    padding: 20,
     borderColor: '#FFA500',
     borderWidth: 1,
+  },
+  label: {
+    color: '#FFA500',
+    marginBottom: 6,
+    fontWeight: '600',
   },
   input: {
-    borderBottomWidth: 1,
-    borderColor: '#FFA500',
-    marginBottom: 12,
-    color: '#fff',
-  },
-  textArea: {
-    height: 120,
     borderWidth: 1,
     borderColor: '#FFA500',
+    borderRadius: 8,
+    padding: 10,
     color: '#fff',
+    marginBottom: 16,
+  },
+  textArea: {
+    borderWidth: 1,
+    borderColor: '#FFA500',
+    borderRadius: 8,
+    padding: 10,
+    color: '#fff',
+    height: 100,
     textAlignVertical: 'top',
-    padding: 8,
+    marginBottom: 20,
   },
   actions: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 12,
   },
   button: {
     borderColor: '#FFA500',
     borderWidth: 1,
     borderRadius: 6,
-    padding: 8,
-    minWidth: 80,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    minWidth: 100,
     alignItems: 'center',
   },
-  buttonText: {color: '#FFA500'},
+  buttonText: {
+    color: '#FFA500',
+    fontWeight: 'bold',
+  },
 });
