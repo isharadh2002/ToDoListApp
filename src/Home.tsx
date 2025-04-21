@@ -1,8 +1,10 @@
+//src/Home.tsx
+
 import React, {useEffect} from 'react';
 import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
 import TaskInput from './components/TaskInput';
 import TaskList from './components/TaskList';
-import {useTaskStore} from './store/taskStore'; // Import the store
+import {useTaskStore} from './store/TaskStore'; // Import the store
 
 export default function Home() {
   const loadTasks = useTaskStore(state => state.loadTasks); // Get the loadTasks function
