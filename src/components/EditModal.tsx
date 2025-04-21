@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 10,
     color: '#fff',
-    height: 100,
+    height: 300,
     textAlignVertical: 'top',
     marginBottom: 20,
   },

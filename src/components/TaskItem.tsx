@@ -17,7 +17,7 @@ export default function TaskItem({task, isOpen, onToggle}: Props) {
   const [showDeleteModal, setShowDeleteModal] = React.useState(false);
   const [showEditModal, setShowEditModal] = React.useState(false);
   const truncated =
-    task.body.length > 50 ? task.body.slice(0, 50) + '...' : task.body;
+    task.body.length > 30 ? task.body.slice(0, 30) + '...' : task.body;
 
   return (
     <>
