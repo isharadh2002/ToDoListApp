@@ -1,12 +1,17 @@
-//src/components/TaskList.tsx
+// src/components/TaskList.tsx
 
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, FlatList, StyleSheet} from 'react-native';
 import {useTaskStore} from '../store/TaskStore';
 import TaskItem from './TaskItem';
 
 export default function TaskList() {
   const tasks = useTaskStore(state => state.tasks);
+  const [openTaskId, setOpenTaskId] = useState<string | null>(null);
+
+  const handleToggle = (id: string) => {
+    setOpenTaskId(prev => (prev === id ? null : id));
+  };
 
   if (tasks.length === 0) {
     return (
@@ -22,7 +27,13 @@ export default function TaskList() {
     <FlatList
       data={tasks}
       keyExtractor={item => item.id}
-      renderItem={({item}) => <TaskItem task={item} />}
+      renderItem={({item}) => (
+        <TaskItem
+          task={item}
+          isOpen={item.id === openTaskId}
+          onToggle={handleToggle}
+        />
+      )}
     />
   );
 }
