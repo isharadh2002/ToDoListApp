@@ -14,6 +14,7 @@ interface TaskState {
   addTask: (title: string, body: string) => void;
   removeTask: (id: string) => void;
   loadTasks: () => void;
+  updateTask: (id: string, title: string, body: string) => void;
 }
 
 const TASK_STORAGE_KEY = 'TASKS';
@@ -40,5 +41,13 @@ export const useTaskStore = create<TaskState>((set, get) => ({
       const parsed = JSON.parse(stored);
       set({ tasks: parsed });
     }
+  },
+
+  updateTask: async (id, title, body) => {
+    const updatedTasks = get().tasks.map(task =>
+      task.id === id ? { ...task, title, body } : task
+    );
+    set({ tasks: updatedTasks });
+    await AsyncStorage.setItem(TASK_STORAGE_KEY, JSON.stringify(updatedTasks));
   },
 }));
