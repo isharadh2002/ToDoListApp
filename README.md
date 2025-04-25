@@ -17,10 +17,9 @@ A simple and elegant To-Do List application built using **React Native**. Easily
 Make sure you have the following installed:
 
 - Node.js: https://nodejs.org/
-- npm or yarn
-- React Native CLI or Expo CLI
+- npm
+- React Native CLI
 - Android Studio or Xcode for emulators
-- Expo Go app (if using Expo) for physical devices
 
 ### Installation
 
@@ -35,23 +34,9 @@ cd todo-list-react-native
 
 ```bash
 npm install
-# or
-yarn install
 ```
 
 3. Start the app:
-
-If you're using **Expo CLI**:
-
-```bash
-npx expo start
-```
-
-Then:
-- Scan the QR code with the Expo Go app on your phone
-- OR press `a` for Android emulator, `i` for iOS simulator
-
-If you're using **React Native CLI**:
 
 ```bash
 npx react-native run-android   # for Android
@@ -63,33 +48,14 @@ npx react-native run-ios       # for iOS (Mac only)
 1. Open the app.
 2. Type a task in the input field.
 3. Tap the **Add Task** button.
-4. Tap a task to mark it as completed.
-5. Tap the delete icon to remove the task.
-
-## 🗂 Project Structure
-
-```
-todo-list-react-native/
-├── App.js
-├── components/
-│   ├── TaskInput.js
-│   └── TaskItem.js
-├── utils/
-│   └── storage.js
-├── assets/
-└── README.md
-```
+4. Tap the delete icon to remove the task.
 
 ## 🛠 Technologies Used
 
 - React Native
 - JavaScript (ES6+)
 - AsyncStorage
-- (Optional) Expo
-
-## 🖼 Screenshots
-
-_Add screenshots or screen recordings here if needed._
+- Zustand
 
 ## 📃 License
 
@@ -98,5 +64,5 @@ This project is licensed under the MIT License.
 ## 🙋‍♂️ Author
 
 **Ishara Dhanushan**  
-Email: your-email@example.com  
-Portfolio: https://your-portfolio-link.com
+Email: isharadh2002@gmail.com  
+Portfolio: https://isharadh2002.github.io
