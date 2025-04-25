@@ -49,6 +49,7 @@ npx react-native run-ios       # for iOS (Mac only)
 2. Type a task in the input field.
 3. Tap the **Add Task** button.
 4. Tap the delete icon to remove the task.
+5. Mark the tasks as completed once you complete them.
 
 ## 🛠 Technologies Used
 
