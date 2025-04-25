@@ -22,15 +22,15 @@ export default function TaskInput() {
       <View style={styles.inputs}>
         <TextInput
           style={styles.input}
-          placeholder="Title..."
-          placeholderTextColor="#FFA500"
+          placeholder="Title"
+          placeholderTextColor="#666"
           value={title}
           onChangeText={setTitle}
         />
         <TextInput
           style={styles.input}
-          placeholder="About..."
-          placeholderTextColor="#FFA500"
+          placeholder="About"
+          placeholderTextColor="#666"
           value={body}
           onChangeText={setBody}
         />
@@ -43,15 +43,24 @@ export default function TaskInput() {
 }
 
 const styles = StyleSheet.create({
-  container: {flexDirection: 'row', margin: 16},
-  inputs: {flex: 1, marginRight: 8},
+  container: {
+    flexDirection: 'row',
+    margin: 16,
+    alignItems: 'flex-start',
+  },
+  inputs: {
+    flex: 1,
+    marginRight: 8,
+  },
   input: {
     borderWidth: 1,
     borderColor: '#FFA500',
     borderRadius: 8,
-    padding: 8,
+    padding: 10,
     color: '#fff',
     marginBottom: 8,
+    backgroundColor: '#222', // Darker input background to match design
+    height: 40, // Fixed height to match design
   },
   button: {
     justifyContent: 'center',
@@ -59,6 +68,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#FFA500',
     borderRadius: 8,
-    padding: 12,
+    backgroundColor: '#333', // Slightly lighter than background for button
+    width: 50,
+    height: 90,
   },
 });
