@@ -34,6 +34,7 @@ export default function TaskList() {
           onToggle={handleToggle}
         />
       )}
+      contentContainerStyle={styles.listContent}
     />
   );
 }
@@ -45,11 +46,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 32,
   },
-  emptyText: {color: '#FFA500', fontSize: 18, marginVertical: 8},
+  emptyText: {
+    color: '#FFA500',
+    fontSize: 18,
+    marginVertical: 8,
+    fontWeight: '500',
+  },
   horizRule: {
     width: 60,
     height: 2,
     backgroundColor: '#FFA500',
     marginVertical: 4,
+  },
+  listContent: {
+    paddingBottom: 24,
   },
 });

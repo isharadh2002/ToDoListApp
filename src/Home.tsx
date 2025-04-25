@@ -4,10 +4,10 @@ import React, {useEffect} from 'react';
 import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
 import TaskInput from './components/TaskInput';
 import TaskList from './components/TaskList';
-import {useTaskStore} from './store/TaskStore'; // Import the store
+import {useTaskStore} from './store/TaskStore';
 
 export default function Home() {
-  const loadTasks = useTaskStore(state => state.loadTasks); // Get the loadTasks function
+  const loadTasks = useTaskStore(state => state.loadTasks);
 
   useEffect(() => {
     // Load tasks when component mounts
@@ -24,5 +24,8 @@ export default function Home() {
 }
 
 const styles = StyleSheet.create({
-  container: {flex: 1, backgroundColor: '#111'},
+  container: {
+    flex: 1,
+    backgroundColor: '#111', // Consistent dark background
+  },
 });
