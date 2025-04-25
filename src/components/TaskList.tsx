@@ -13,6 +13,13 @@ export default function TaskList() {
     setOpenTaskId(prev => (prev === id ? null : id));
   };
 
+  // Sort tasks: incomplete tasks first, then completed tasks
+  const sortedTasks = [...tasks].sort((a, b) => {
+    if (a.completed && !b.completed) return 1;
+    if (!a.completed && b.completed) return -1;
+    return 0;
+  });
+
   if (tasks.length === 0) {
     return (
       <View style={styles.emptyContainer}>
@@ -25,7 +32,7 @@ export default function TaskList() {
 
   return (
     <FlatList
-      data={tasks}
+      data={sortedTasks}
       keyExtractor={item => item.id}
       renderItem={({item}) => (
         <TaskItem

@@ -5,6 +5,7 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import {Task, useTaskStore} from '../store/TaskStore';
 import EditModal from './EditModal';
+import DeleteConfirmationOverlay from './DeleteConfirmationOverlay';
 
 interface Props {
   task: Task;
@@ -21,6 +22,11 @@ export default function TaskItem({task, isOpen, onToggle}: Props) {
   const [showEditModal, setShowEditModal] = React.useState(false);
   const truncated =
     task.body.length > 30 ? task.body.slice(0, 30) + '...' : task.body;
+
+  const handleDeleteConfirm = () => {
+    removeTask(task.id);
+    setShowDeleteModal(false);
+  };
 
   return (
     <>
@@ -70,26 +76,12 @@ export default function TaskItem({task, isOpen, onToggle}: Props) {
         </View>
       </TouchableOpacity>
 
-      {showDeleteModal && (
-        <View style={styles.modal}>
-          <Text style={styles.modalText}>Delete this task?</Text>
-          <View style={styles.modalButtons}>
-            <TouchableOpacity
-              onPress={() => {
-                removeTask(task.id);
-                setShowDeleteModal(false);
-              }}
-              style={styles.modalButton}>
-              <Text style={styles.modalButtonText}>Yes</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => setShowDeleteModal(false)}
-              style={styles.modalButton}>
-              <Text style={styles.modalButtonText}>No</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      )}
+      {/* Using the new DeleteConfirmationOverlay component */}
+      <DeleteConfirmationOverlay
+        visible={showDeleteModal}
+        onConfirm={handleDeleteConfirm}
+        onCancel={() => setShowDeleteModal(false)}
+      />
 
       {showEditModal && (
         <EditModal task={task} onClose={() => setShowEditModal(false)} />
@@ -101,17 +93,17 @@ export default function TaskItem({task, isOpen, onToggle}: Props) {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    alignItems: 'flex-start', // Changed from 'center' to 'flex-start'
+    alignItems: 'flex-start',
     borderWidth: 1,
     borderColor: '#FFA500',
     borderRadius: 8,
     padding: 12,
     marginHorizontal: 16,
     marginVertical: 4,
-    backgroundColor: '#222', // Darker card background to match design
+    backgroundColor: '#222',
   },
   checkboxContainer: {
-    paddingTop: 2, // Small padding to align with text
+    paddingTop: 2,
   },
   textBlock: {
     flex: 1,
@@ -124,49 +116,16 @@ const styles = StyleSheet.create({
   },
   body: {
     marginTop: 4,
-    color: '#aaa', // Lighter color for body text to match design
+    color: '#aaa',
   },
   completedText: {
     textDecorationLine: 'line-through',
-    color: '#666', // Dimmed color for completed tasks
+    color: '#666',
   },
   actions: {
     flexDirection: 'row',
     gap: 20,
     marginTop: 10,
-  },
-  modal: {
-    position: 'absolute',
-    top: '35%',
-    left: '10%',
-    right: '10%',
-    backgroundColor: '#111',
-    borderRadius: 12,
-    borderColor: '#FFA500',
-    borderWidth: 1,
-    padding: 20,
-    zIndex: 100,
-  },
-  modalText: {
-    color: '#fff',
-    fontSize: 16,
-    marginBottom: 16,
-    textAlign: 'center',
-  },
-  modalButtons: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-  },
-  modalButton: {
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderColor: '#FFA500',
-    borderWidth: 1,
-    borderRadius: 6,
-  },
-  modalButtonText: {
-    color: '#FFA500',
-    fontWeight: 'bold',
   },
   checkbox: {
     width: 20,
@@ -178,10 +137,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   checkboxCompleted: {
-    backgroundColor: 'rgba(255, 165, 0, 0.2)', // Semi-transparent orange background
+    backgroundColor: 'rgba(255, 165, 0, 0.2)',
   },
   deleteButton: {
-    alignSelf: 'flex-start', // Align to top
-    paddingTop: 2, // Small padding to align with text
+    alignSelf: 'flex-start',
+    paddingTop: 2,
   },
 });
