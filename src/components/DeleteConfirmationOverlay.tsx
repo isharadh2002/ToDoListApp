@@ -112,7 +112,8 @@ const styles = StyleSheet.create({
   cancelButton: {
     paddingVertical: 10,
     paddingHorizontal: 16,
-    borderColor: '#555',
+    borderColor: '#A35709',
+    backgroundColor: '#FF8303',
     borderWidth: 1,
     borderRadius: 8,
     alignItems: 'center',
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
     minWidth: 90,
   },
   cancelButtonText: {
-    color: '#CCC',
+    color: '#FFF',
     fontWeight: '500',
   },
   deleteButtonText: {
