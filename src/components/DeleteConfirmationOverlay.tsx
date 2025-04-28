@@ -130,11 +130,11 @@ const styles = StyleSheet.create({
     minWidth: 90,
   },
   cancelButtonText: {
-    color: '#FFF',
+    color: '#F0E3CA',
     fontWeight: '500',
   },
   deleteButtonText: {
-    color: '#FFF',
+    color: '#F0E3CA',
     fontWeight: 'bold',
   },
 });
