@@ -1,5 +1,3 @@
-// src/components/EditModal.tsx
-
 import React, {useState} from 'react';
 import {
   Modal,

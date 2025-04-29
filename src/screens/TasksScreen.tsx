@@ -1,5 +1,3 @@
-//src/TasksScreen.tsx
-
 import React, {useEffect} from 'react';
 import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
 import TaskInput from '../components/TaskInput';
